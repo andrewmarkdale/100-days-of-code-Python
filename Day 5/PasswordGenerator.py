@@ -44,16 +44,23 @@ nr_numbers = int(input("How many numbers would you like?\n"))
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 total_char = nr_letters + nr_numbers + nr_symbols
 pw_list = []
+
+# Appending random letter character to our password list
 for character in range(nr_letters):
     pw_list += random.choice(letters)
 
+# Appending random symbol character to our password list
 for character in range(nr_symbols):
     pw_list += random.choice(symbols)    
 
+# Appending random number character to our password list
 for character in range(nr_numbers):
     pw_list += random.choice(numbers)
     
+# Shuffling our list to ensure password is more 'random'
 random.shuffle(pw_list)
+
+# List comprehension to return string
 return_pw = "".join([x for x in pw_list])
 
 print(return_pw)
