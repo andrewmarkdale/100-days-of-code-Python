@@ -6,4 +6,5 @@ Repository containing all of my Python projects from 100 days of code by Dr. Ang
 
 Day 1: Band Name Generator\
 Day 2: Tip Calculator\
-Day 3: Treasure Island
+Day 3: Treasure Island\
+Day 4: Rock Paper Scissors
