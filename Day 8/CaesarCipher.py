@@ -19,6 +19,7 @@ Encrypt/decrypt messages using Caesar Cipher
 # Given starter code
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+from art import logo
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
     #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
@@ -66,10 +67,7 @@ def caesar_cipher(starter_text, shift_num, direction):
         shift_num *= -1
     for letter in starter_text:
         index = alphabet.index(letter)
-        if index + shift_num > len(alphabet):
-            return_text += alphabet[(index + shift_num) - len(alphabet)]
-        else:
-            return_text += alphabet[index + shift_num]
+        return_text += alphabet[(index + shift_num) % len(alphabet)]
     return return_text
 
 """
@@ -93,6 +91,11 @@ while True:
         print("Please enter a valid option.\n")
 """
 
+
+# Printing the logo given
+
+print(logo)
+
 # Improved single function version
 
 while True:
@@ -106,8 +109,13 @@ while True:
         shift = int(input("Type the shift number:\n"))
         new_text = caesar_cipher(text, shift, direction)
         print(f"The {direction}d text is: {new_text}")
-        cont = input("Would you like to continue? Y/N: ")
-        if cont.lower() == "n":
-            break
-#print(encrypt(text, shift))
+        while True:
+            cont = input("Would you like to continue? Y/N: ")
+            if cont.lower() == "y":
+                break
+            elif cont.lower() == "n":
+                quit()
+            else:
+                print("Please enter a valid option.\n")
+    #print(encrypt(text, shift))
 #print(decrypt(encrypt(text, shift), shift)) 
