@@ -66,8 +66,11 @@ def caesar_cipher(starter_text, shift_num, direction):
     if direction == "decode":
         shift_num *= -1
     for letter in starter_text:
-        index = alphabet.index(letter)
-        return_text += alphabet[(index + shift_num) % len(alphabet)]
+        if not letter.isalpha():
+            return_text += letter
+        else:
+            index = alphabet.index(letter)
+            return_text += alphabet[(index + shift_num) % len(alphabet)]
     return return_text
 
 """
