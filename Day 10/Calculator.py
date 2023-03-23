@@ -38,14 +38,33 @@ calculator_fn_dict = {
     '*': multiply,
 }
 
-
+def get_operator():
+    operation = input("Enter an option from the operator list: ")
+    if operation in calculator_fn_dict.keys():
+        return operation
+    else:
+        print("Invalid operator entry. Please select from the list of available operators.\n")
+        return get_operator()
+    
+def get_num(position):
+    try:
+        num = float(input(f"Enter the {position} input: "))
+        return num
+    except KeyboardInterrupt:
+        print() # Making it prettier for the console.
+        quit()
+    except:
+        print(f"Invalid entry for {position} number. Try again.\n")
+        return get_num(position)
+    
 def calc_loop():
     
-    num1 = float(input("\nEnter the first number: "))
-    num2 = float(input("Enter the second number: "))
+    print()
+    num1 = get_num("first")
+    operation = get_operator()
+    num2 = get_num("second")
     
-    
-    operation = input("Enter an option from the operator list: ")
+
     answer = calculator_fn_dict[operation](num1, num2)
     print(f"The result of {num1} {operation} {num2} = {answer}")
     
@@ -60,8 +79,8 @@ def calc_loop():
             print("Invalid entry!")
             continue
         
-        cont_num = float(input("\nEnter a new number: "))
-        operation = input('Enter an option from the operator list: ')
+        operation = get_operator()
+        cont_num = get_num("next")
         old_answer = answer
         answer = calculator_fn_dict[operation](old_answer, cont_num)
         
