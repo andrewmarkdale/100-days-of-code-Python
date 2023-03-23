@@ -24,8 +24,8 @@ bidders = {}
     
 print(logo)
 print("Welcome to the secret auction program.")
-
-while True:
+bidding_finished = False
+while not bidding_finished:
     name = input("Please enter your name: ")
     
     # Ensure integer value
@@ -40,14 +40,15 @@ while True:
     bidders[name] = bid
     
     # Check if repeat auction loop or end auction
-    while True:
+    exit_continue = False
+    while not exit_continue:
         print("\nAre there any other bidders?")
         cont = input("Type 'yes' or 'no': ")
         
         # If continue is 'yes' clear the screen and run auction loop again
         if cont == 'yes':
             clear()
-            break
+            exit_continue = True
         
         # If continue is 'no' check for max value in dictionary, print winner and exit
         elif cont == 'no':
@@ -58,7 +59,8 @@ while True:
                     max_name = name
                     max_val = int(bidders[name])
             print(f'The winner is of the auction is {max_name} with a bid of ${max_val}')
-            quit()
+            bidding_finished = True
+            exit_continue = True
         else:
             print("\nPlease enter a valid response.")
     
