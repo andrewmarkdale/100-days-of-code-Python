@@ -40,13 +40,8 @@ calculator_fn_dict = {
 
 
 def calc_loop():
-    print(logo)
-    print("Operators:")
-    for operator in calculator_fn_dict:
-        print(operator)
-        
-        
-    num1 = float(input("Enter the first number: "))
+    
+    num1 = float(input("\nEnter the first number: "))
     num2 = float(input("Enter the second number: "))
     
     
@@ -55,10 +50,12 @@ def calc_loop():
     print(f"The result of {num1} {operation} {num2} = {answer}")
     
     while True:
-        cont = input(f"Do you want to continue calculating with {answer}? Y/N: ")
-        if cont.lower() == 'n':
+        cont = input(f"Do you want to continue calculating with {answer}? Y/N or type E to exit: ")
+        if cont.lower() == 'e':
             print("Goodbye!")
-            break
+            quit()
+        elif cont.lower() == 'n':
+            calc_loop()
         elif cont.lower() != 'y':
             print("Invalid entry!")
             continue
@@ -75,4 +72,8 @@ def calc_loop():
     
 
 if __name__ == '__main__':
+    print(logo)
+    print("Operators:")
+    for operator in calculator_fn_dict:
+        print(operator)
     calc_loop()
