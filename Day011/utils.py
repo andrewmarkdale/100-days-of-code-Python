@@ -21,11 +21,11 @@ def clear():
 def print_score(dict, final=False):
     
     if not final:
-        print(f"Your cards: {dict['user']}, current score: {sum(dict['user'])}")
-        print(f"Computers first card: {dict['dealer'][0]}")
+        print(f"  Your cards: {dict['user']}, current score: {sum(dict['user'])}")
+        print(f"  Computers first card: {dict['dealer'][0]}")
     else:
-        print(f"Your final hand: {dict['user']}, final score: {sum(dict['user'])}")
-        print(f"Computer's final hand: {dict['dealer']}, final score: {sum(dict['dealer'])}")
+        print(f"  Your final hand: {dict['user']}, final score: {sum(dict['user'])}")
+        print(f"  Computer's final hand: {dict['dealer']}, final score: {sum(dict['dealer'])}")
                 
 def is_bust(dict, player):
     return sum(dict[player]) > BLACKJACK
