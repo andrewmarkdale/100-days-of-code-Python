@@ -14,4 +14,8 @@ Day 7: Hangman\
 Day 8: Caesar Cipher\
 Day 9: Secret Auction Program\
 Day 10: Calculator\
-Day 11: Blackjack
+Day 11: Blackjack\
+Day 12: Number Guessing Game\
+Day 13: Debugging Exercises\
+Day 14: Higher Lower Game\
+Day 15: Coffee Machine
