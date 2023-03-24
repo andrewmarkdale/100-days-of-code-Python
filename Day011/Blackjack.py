@@ -24,11 +24,17 @@ from utils import *
 
 def blackjack_game_loop():
     # Using a dictionary to represent user and dealer hands
-    cards_inplay = {}
+    # Dr. Yu utilizes lists from what I gather but my solution works.
+    cards_inplay = {
+        'user': [],
+        'dealer': []
+    }
     print(logo)
+    
     # First cards
-    cards_inplay["user"] = [random.choice(cards), random.choice(cards)]
-    cards_inplay["dealer"] = [random.choice(cards)]
+    for _ in range(2):
+        add_card(cards_inplay['user'])
+        add_card(cards_inplay['dealer'])
     
     active_game = True
     while active_game:
