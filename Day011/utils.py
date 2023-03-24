@@ -29,4 +29,9 @@ def print_score(dict, final=False):
                 
 def is_bust(dict, player):
     return sum(dict[player]) > BLACKJACK
-    
+
+def finish_dealer_hand(dict):
+    while sum(dict['dealer']) < 17:
+        add_card(dict['dealer'])
+        if is_bust(dict, 'dealer') and ACE in dict['dealer']:
+            dict['dealer'][dict['dealer'].index(ACE)] = 1

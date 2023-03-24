@@ -36,6 +36,14 @@ def blackjack_game_loop():
         add_card(cards_inplay['user'])
         add_card(cards_inplay['dealer'])
     
+    if sum(cards_inplay['user']) == BLACKJACK and sum(cards_inplay['dealer']) == BLACKJACK:
+        print_score(cards_inplay)
+        print("  That's a standoff! Draw!")
+        return
+    elif sum(cards_inplay['user']) == BLACKJACK:
+        print_score(cards_inplay)
+        print("  That's a natural, you win!")
+        return
     active_game = True
     while active_game:
         
@@ -47,10 +55,7 @@ def blackjack_game_loop():
                 # Normally if you bust you auto lose but the example program seemed to have the
                 # dealer draw cards after you're bust
                 print_score(cards_inplay)
-                while sum(cards_inplay["dealer"]) < 17:
-                    add_card(cards_inplay["dealer"])
-                    if is_bust(cards_inplay, "dealer") and ACE in cards_inplay['dealer']:
-                        cards_inplay['dealer'][cards_inplay['dealer'].index(ACE)] = 1
+                finish_dealer_hand(cards_inplay)
                 print_score(cards_inplay, final=True)
                 print("You went over. You lose.")
                 break
@@ -60,19 +65,25 @@ def blackjack_game_loop():
         
         if another_card == 'y':
             add_card(cards_inplay["user"])
+            user_sum = sum(cards_inplay['user'])
+            if user_sum == BLACKJACK:
+                finish_dealer_hand(cards_inplay)
+                print_score(cards_inplay, final=True)
+                print("Blackjack!")
+                if sum(cards_inplay['dealer']) == BLACKJACK:
+                    print("Dealer has blackjack as well, draw!")
+                else:
+                    print("You win!")
+                active_game = False
         # Round is over, calculate scores and determine winner.
         elif another_card == 'n':
-            while sum(cards_inplay["dealer"]) < 17:
-                add_card(cards_inplay["dealer"])
-                if is_bust(cards_inplay, 'dealer') and ACE in cards_inplay['dealer']:
-                    cards_inplay['dealer'][cards_inplay['dealer'].index(ACE)] = 1
-                    
-                
+            finish_dealer_hand(cards_inplay)
             user_sum = sum(cards_inplay['user'])
             dealer_sum = sum(cards_inplay['dealer'])
             
             print_score(cards_inplay, final=True)
             
+            # Win/lose conditions
             if dealer_sum > BLACKJACK:
                 print(f"Dealer went over, you win!")
             elif user_sum > dealer_sum:
