@@ -31,7 +31,7 @@ def blackjack_game_loop():
     }
     print(logo)
     
-    # First cards
+    # First cards, two for the user and dealer. Dealer only shows one initially.
     for _ in range(2):
         add_card(cards_inplay['user'])
         add_card(cards_inplay['dealer'])
@@ -44,6 +44,8 @@ def blackjack_game_loop():
             if ACE in cards_inplay['user']:
                 cards_inplay['user'][cards_inplay['user'].index(ACE)] = 1
             else:
+                # Normally if you bust you auto lose but the example program seemed to have the
+                # dealer draw cards after you're bust
                 print_score(cards_inplay)
                 while sum(cards_inplay["dealer"]) < 17:
                     add_card(cards_inplay["dealer"])
@@ -58,6 +60,7 @@ def blackjack_game_loop():
         
         if another_card == 'y':
             add_card(cards_inplay["user"])
+        # Round is over, calculate scores and determine winner.
         elif another_card == 'n':
             while sum(cards_inplay["dealer"]) < 17:
                 add_card(cards_inplay["dealer"])
