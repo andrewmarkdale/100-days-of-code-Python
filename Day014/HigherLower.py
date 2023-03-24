@@ -26,6 +26,14 @@ def clear():
 def get_data():
     return random.choice(data)
 
+def format_print(choice, letter):
+    c_string = ""
+    c_string += f"Compare {letter}: "
+    c_string += f"{choice['name']}, "
+    c_string += f"{'an' if choice['description'][0].lower() in VOWELS else 'a'} "
+    c_string += f"{choice['description']} from {choice['country']}"
+    print(c_string)
+    
 def game_loop():
     clear()
     score = 0
@@ -38,10 +46,9 @@ def game_loop():
             choice_b = get_data()
             
         ans = 'A' if choice_a['follower_count'] > choice_b['follower_count'] else 'B'
-        print(f"Compare A: {choice_a['name']}, {'an' if choice_a['description'][0].lower() in VOWELS else 'a'} {choice_a['description']} from {choice_a['country']}")
+        format_print(choice_a, 'A')
         print(vs)
-        print(f"Compare B: {choice_b['name']}, {'an' if choice_b['description'][0].lower() in VOWELS else 'a'} {choice_b['description']} from {choice_b['country']}")
-        
+        format_print(choice_b, 'B')
         valid_input = False
         while not valid_input:
             guess = input("Who has more followers? Type 'A' or 'B': ")
