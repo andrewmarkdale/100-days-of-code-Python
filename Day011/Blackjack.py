@@ -48,18 +48,7 @@ def blackjack_game_loop():
     while active_game:
         
         # Doing a check like the final example program given
-        if is_bust(cards_inplay, 'user'):
-            if ACE in cards_inplay['user']:
-                cards_inplay['user'][cards_inplay['user'].index(ACE)] = 1
-            else:
-                # Normally if you bust you auto lose but the example program seemed to have the
-                # dealer draw cards after you're bust
-                print_score(cards_inplay)
-                finish_dealer_hand(cards_inplay)
-                print_score(cards_inplay, final=True)
-                print("You went over. You lose.")
-                break
-        
+
         print_score(cards_inplay)
         another_card = input("Type 'y' to get a new card. Type 'n' to pass: ")
         
@@ -75,6 +64,18 @@ def blackjack_game_loop():
                 else:
                     print("You win!")
                 active_game = False
+            elif is_bust(cards_inplay, 'user'):
+                if ACE in cards_inplay['user']:
+                    cards_inplay['user'][cards_inplay['user'].index(ACE)] = 1
+                else:
+                    # Normally if you bust you auto lose but the example program seemed to have the
+                    # dealer draw cards after you're bust
+                    print_score(cards_inplay)
+                    finish_dealer_hand(cards_inplay)
+                    print_score(cards_inplay, final=True)
+                    print("You went over. You lose.")
+                    active_game = False
+        
         # Round is over, calculate scores and determine winner.
         elif another_card == 'n':
             finish_dealer_hand(cards_inplay)
