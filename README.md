@@ -12,4 +12,6 @@ Day 5: Password Generator\
 Day 6: Reeborg\
 Day 7: Hangman\
 Day 8: Caesar Cipher\
-Day 9: Secret Auction Program
+Day 9: Secret Auction Program\
+Day 10: Calculator\
+Day 11: Blackjack
