@@ -18,4 +18,6 @@ Day 11: Blackjack\
 Day 12: Number Guessing Game\
 Day 13: Debugging Exercises\
 Day 14: Higher Lower Game\
-Day 15: Coffee Machine
+Day 15: Coffee Machine\
+Day 16: Coffee Machine OOP\
+Day 17: Quiz game OOP
