@@ -1,4 +1,6 @@
 # Etch-a-sketch project from day 19
+# Andrew Dale
+# Day 19
 
 import turtle as t
 import random
