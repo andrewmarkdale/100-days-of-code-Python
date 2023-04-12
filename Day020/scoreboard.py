@@ -1,3 +1,3 @@
 class Scoreboard:
     def __init__(self) -> None:
-        pass
+        self.score = 0

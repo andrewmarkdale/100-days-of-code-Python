@@ -2,6 +2,7 @@ from turtle import *
 
 MOVE_DISTANCE = 20
 UP, DOWN, LEFT, RIGHT = 90, 270, 180, 0
+LAST = -1
 class Snake:
     def __init__(self):
         self.snake = []
@@ -15,6 +16,13 @@ class Snake:
             self.snake[square].color('white')
             self.snake[square].penup()
             self.snake[square].setx(square * -MOVE_DISTANCE)
+    
+    def add_square(self):
+        self.snake.append(Turtle())
+        self.snake[LAST].shape('square')
+        self.snake[LAST].color('white')
+        self.snake[LAST].penup()
+        
             
         
     def move(self):

@@ -44,6 +44,7 @@ while game_active:
     snake.move()
     screen.update()
     if food.check_devour(snake):
+        snake.add_square()
         food.make_food(snake)
     time.sleep(0.1)
 
