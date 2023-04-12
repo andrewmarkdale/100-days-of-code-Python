@@ -18,6 +18,7 @@ Create the game Snake
 
 from turtle import *
 from snake import Snake
+from food import Food
 import time
 
         
@@ -28,7 +29,7 @@ screen.title("Snake")
 screen.tracer(0)
 
 snake = Snake()
-    
+food = Food(snake)
     
 
 screen.listen()
@@ -37,11 +38,14 @@ screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
 
+food.make_food(snake)
 game_active = True    
 while game_active:
     snake.move()
     screen.update()
-    time.sleep(0.05)
+    if food.check_devour(snake):
+        food.make_food(snake)
+    time.sleep(0.1)
 
 
 screen.exitonclick()
