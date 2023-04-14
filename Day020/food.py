@@ -1,5 +1,9 @@
+# Code to move food around playing area
+
 from turtle import *
 import random
+
+
 
 class Food:
     def __init__(self, snake) -> None:
