@@ -29,7 +29,7 @@ screen.title("Snake")
 screen.tracer(0)
 
 snake = Snake()
-food = Food(snake)
+food = Food()
     
 
 screen.listen()
@@ -38,15 +38,14 @@ screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
 
-food.make_food(snake)
+#food.make_food(snake)
 game_active = True    
 while game_active:
     snake.move()
     screen.update()
     if food.check_devour(snake):
         snake.add_square()
-        food.make_food(snake)
-    time.sleep(0.1)
+    time.sleep(0.075)
 
 
 screen.exitonclick()
