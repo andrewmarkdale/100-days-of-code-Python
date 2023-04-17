@@ -12,7 +12,7 @@ Project:
 Snake
 
 Purpose:
-Create the game Snake
+Create the game Snake using OOP in 3 different classes.
 
 """
 
