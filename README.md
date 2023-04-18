@@ -20,4 +20,7 @@ Day 13: Debugging Exercises\
 Day 14: Higher Lower Game\
 Day 15: Coffee Machine\
 Day 16: Coffee Machine OOP\
-Day 17: Quiz game OOP
+Day 17: Quiz Game OOP\
+Day 18: Turtle Challenges\
+Day 19: Etch-a-sketch and Turtle Racing\
+Day 20 and 21: Snake
