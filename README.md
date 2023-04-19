@@ -24,3 +24,5 @@ Day 17: Quiz Game OOP\
 Day 18: Turtle Challenges\
 Day 19: Etch-a-sketch and Turtle Racing\
 Day 20 and 21: Snake
+
+All projects are my own version of what the class required - i.e. different structure, same result.
