@@ -1,6 +1,6 @@
 # 100 Days Of Code Python
 
-Repository containing all of my Python projects from 100 days of code by Dr. Angela Yu
+Repository containing all of my Python projects from 100 days of code by Dr. Angela Yu. The projects increase in difficulty everyday.
 
 ## Projects
 
